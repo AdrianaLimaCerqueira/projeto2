@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Produto" table="produto" catalog="sql11194346" optimistic-lock="version">
+        <id name="produtoId" type="int">
+            <column name="produto_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categoria" class="BLL.Categoria" fetch="select">
+            <column name="id_categoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="iva" class="BLL.Iva" fetch="select">
+            <column name="iva" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" length="45" />
+        </property>
+        <property name="precoVenda" type="string">
+            <column name="preco_venda" length="45" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="45" />
+        </property>
+        <set name="registaProdutos" table="regista_produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_id" not-null="true" />
+            </key>
+            <one-to-many class="BLL.RegistaProduto" />
+        </set>
+        <set name="movimentoVendas" table="movimento_venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_id" not-null="true" />
+            </key>
+            <one-to-many class="BLL.MovimentoVenda" />
+        </set>
+        <set name="prodInvents" table="prod_invent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_id" not-null="true" />
+            </key>
+            <one-to-many class="BLL.ProdInvent" />
+        </set>
+        <set name="produtoFornecedors" table="produto_fornecedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_id" />
+            </key>
+            <one-to-many class="BLL.ProdutoFornecedor" />
+        </set>
+        <set name="produtoEncomendas" table="produto_encomenda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Id_produto" not-null="true" />
+            </key>
+            <one-to-many class="BLL.ProdutoEncomenda" />
+        </set>
+        <set name="movimentoReposicaos" table="movimento_reposicao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_id" not-null="true" />
+            </key>
+            <one-to-many class="BLL.MovimentoReposicao" />
+        </set>
+    </class>
+</hibernate-mapping>

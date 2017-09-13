@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Funcionario" table="funcionario" catalog="sql11194346" optimistic-lock="version">
+        <id name="funcionairoId" type="java.lang.Integer">
+            <column name="funcionairo_id" />
+            <generator class="identity" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="morada" type="string">
+            <column name="morada" length="45" />
+        </property>
+        <property name="telefone" type="java.lang.Integer">
+            <column name="telefone" />
+        </property>
+        <property name="EMail" type="string">
+            <column name="e_mail" length="45" />
+        </property>
+        <property name="tipo" type="binary">
+            <column name="tipo" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" unique="true" />
+        </property>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_id" />
+            </key>
+            <one-to-many class="BLL.Venda" />
+        </set>
+        <set name="encomendas" table="encomenda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_id" />
+            </key>
+            <one-to-many class="BLL.Encomenda" />
+        </set>
+        <set name="registas" table="regista" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_id" />
+            </key>
+            <one-to-many class="BLL.Regista" />
+        </set>
+        <set name="reposicaos" table="reposicao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_id" />
+            </key>
+            <one-to-many class="BLL.Reposicao" />
+        </set>
+    </class>
+</hibernate-mapping>

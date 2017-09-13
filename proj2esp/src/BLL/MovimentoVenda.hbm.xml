@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.MovimentoVenda" table="movimento_venda" catalog="sql11194346" optimistic-lock="version">
+        <composite-id name="id" class="BLL.MovimentoVendaId">
+            <key-property name="vendaId" type="int">
+                <column name="venda_id" />
+            </key-property>
+            <key-property name="produtoId" type="int">
+                <column name="produto_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="produto" class="BLL.Produto" update="false" insert="false" fetch="select">
+            <column name="produto_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="venda" class="BLL.Venda" update="false" insert="false" fetch="select">
+            <column name="venda_id" not-null="true" />
+        </many-to-one>
+        <property name="quantidade" type="java.lang.Integer">
+            <column name="quantidade" />
+        </property>
+        <property name="preco" type="java.lang.Float">
+            <column name="preco" precision="12" scale="0" />
+        </property>
+        <property name="iva" type="java.lang.Float">
+            <column name="iva" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

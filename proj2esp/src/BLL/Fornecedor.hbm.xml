@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Fornecedor" table="fornecedor" catalog="sql11194346" optimistic-lock="version">
+        <id name="fornecedorId" type="int">
+            <column name="fornecedor_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="45" />
+        </property>
+        <property name="morada" type="string">
+            <column name="morada" length="45" />
+        </property>
+        <property name="contacto" type="java.lang.Integer">
+            <column name="contacto" />
+        </property>
+        <set name="encomendas" table="encomenda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fornecedor_id" />
+            </key>
+            <one-to-many class="BLL.Encomenda" />
+        </set>
+        <set name="produtoFornecedors" table="produto_fornecedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fornecedor_id" />
+            </key>
+            <one-to-many class="BLL.ProdutoFornecedor" />
+        </set>
+    </class>
+</hibernate-mapping>

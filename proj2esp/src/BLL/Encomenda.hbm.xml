@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Encomenda" table="encomenda" catalog="sql11194346" optimistic-lock="version">
+        <id name="encomendaId" type="int">
+            <column name="encomenda_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fornecedor" class="BLL.Fornecedor" fetch="select">
+            <column name="fornecedor_id" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="BLL.Funcionario" fetch="select">
+            <column name="funcionario_id" />
+        </many-to-one>
+        <property name="data" type="timestamp">
+            <column name="data" length="19" />
+        </property>
+        <set name="produtoEncomendas" table="produto_encomenda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_encomenda" not-null="true" />
+            </key>
+            <one-to-many class="BLL.ProdutoEncomenda" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Regista" table="regista" catalog="sql11194346" optimistic-lock="version">
+        <id name="registaId" type="int">
+            <column name="regista_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="funcionario" class="BLL.Funcionario" fetch="select">
+            <column name="funcionario_id" />
+        </many-to-one>
+        <property name="quantidadeTotal" type="java.lang.Integer">
+            <column name="quantidade_total" />
+        </property>
+        <property name="data" type="date">
+            <column name="data" length="10" />
+        </property>
+        <set name="registaProdutos" table="regista_produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="regista_id" not-null="true" />
+            </key>
+            <one-to-many class="BLL.RegistaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

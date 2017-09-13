@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Entidade" table="entidade" catalog="sql11194346" optimistic-lock="version">
+        <id name="nipc" type="int">
+            <column name="nipc" />
+            <generator class="assigned" />
+        </id>
+        <property name="cae" type="java.lang.Integer">
+            <column name="cae" />
+        </property>
+        <property name="morada" type="string">
+            <column name="morada" length="45" />
+        </property>
+        <property name="capitalSocial" type="java.lang.Float">
+            <column name="capital_social" precision="12" scale="0" />
+        </property>
+        <property name="nomeComercial" type="string">
+            <column name="nome_comercial" length="45" />
+        </property>
+        <set name="recibos" table="recibo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nipc" />
+            </key>
+            <one-to-many class="BLL.Recibo" />
+        </set>
+    </class>
+</hibernate-mapping>

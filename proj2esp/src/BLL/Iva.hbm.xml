@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/set/2017 17:26:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BLL.Iva" table="iva" catalog="sql11194346" optimistic-lock="version">
+        <id name="ivaId" type="int">
+            <column name="iva_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="valor" type="java.lang.Float">
+            <column name="valor" precision="12" scale="0" />
+        </property>
+        <set name="produtos" table="produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="iva" />
+            </key>
+            <one-to-many class="BLL.Produto" />
+        </set>
+    </class>
+</hibernate-mapping>
