@@ -5,6 +5,20 @@
  */
 package GUI;
 
+import BLL.Categoria;
+import BLL.Funcionario;
+import java.awt.event.ActionEvent;
+import java.util.List;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import proj2esp.Database;
+
 /**
  *
  * @author Adriana Cerqueira
@@ -14,8 +28,58 @@ public class ver_categoria extends javax.swing.JPanel {
     /**
      * Creates new form ver_categoria
      */
+    DefaultTableModel valores;
+    
     public ver_categoria() {
         initComponents();
+        valores = (DefaultTableModel) jTable1.getModel();
+        Session session = Database.getSession();
+        Query query = session.createQuery("FROM BLL.Categoria");
+        List<Categoria> categoria = query.list();
+        Action editar = new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            JTable table = (JTable)e.getSource();
+            int row = Integer.valueOf( e.getActionCommand() );
+            
+                
+            }
+        };
+        
+        Action eliminar = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] options = {"Confirmar", "Cancelar"};
+                int dialogResult = JOptionPane.showOptionDialog(null, "Pretende eliminar o categoria selecionado?", "Confirmação",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,     //do not use a custom Icon
+                options,  //the titles of buttons
+                options[0]);
+                if(dialogResult == JOptionPane.YES_OPTION){    
+                    JTable table = (JTable)e.getSource();
+                    int row = Integer.valueOf( e.getActionCommand() );
+                    String p=(String)valores.getValueAt(row, 0);
+                    for(Categoria cat : categoria){
+                        if(cat.getNome().equals(p)){
+                            session.beginTransaction();
+                            session.delete(cat);
+                            session.getTransaction().commit();
+                        }
+                    }
+                }
+            }
+        };
+        
+        for(Categoria cat : categoria){
+            valores.addRow(new String[]{
+                cat.getNome(),
+                cat.getDescricao()
+            });
+            ButtonColumn btc = new ButtonColumn(this.jTable1, editar, 2);
+            ButtonColumn btc1 = new ButtonColumn(this.jTable1, eliminar, 3);
+        
+        }
     }
 
     /**
@@ -34,7 +98,11 @@ public class ver_categoria extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+<<<<<<< HEAD
         adiconacategoria = new javax.swing.JToggleButton();
+=======
+        add_categoria = new javax.swing.JToggleButton();
+>>>>>>> bd62bf7d0ed7a09213c203e85905ff50f3b759a3
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -55,21 +123,25 @@ public class ver_categoria extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "nome", "descrição", "editar", "eliminar"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
+<<<<<<< HEAD
         adiconacategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/arquivomais.png"))); // NOI18N
         adiconacategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adiconacategoriaActionPerformed(evt);
+=======
+        add_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/arquivomais.png"))); // NOI18N
+        add_categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_categoriaActionPerformed(evt);
+>>>>>>> bd62bf7d0ed7a09213c203e85905ff50f3b759a3
             }
         });
 
@@ -94,7 +166,11 @@ public class ver_categoria extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                         .addComponent(adiconacategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                        .addComponent(add_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> bd62bf7d0ed7a09213c203e85905ff50f3b759a3
                 .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +182,11 @@ public class ver_categoria extends javax.swing.JPanel {
                         .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2))
+<<<<<<< HEAD
                     .addComponent(adiconacategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                    .addComponent(add_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> bd62bf7d0ed7a09213c203e85905ff50f3b759a3
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(52, 52, 52)
@@ -129,6 +209,7 @@ public class ver_categoria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+<<<<<<< HEAD
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
@@ -139,6 +220,24 @@ public class ver_categoria extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton adiconacategoria;
+=======
+    MenuAdmin topFrame = (MenuAdmin) SwingUtilities.getWindowAncestor(this);
+    topFrame.voltar();
+    }//GEN-LAST:event_voltarActionPerformed
+
+    private void add_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_categoriaActionPerformed
+    MenuAdmin topFrame = (MenuAdmin) SwingUtilities.getWindowAncestor(this);
+    add_categoria novo = new add_categoria();
+    this.setVisible(false);
+    topFrame.setContentPane(novo);
+    novo.setVisible(true);
+        
+    }//GEN-LAST:event_add_categoriaActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton add_categoria;
+>>>>>>> bd62bf7d0ed7a09213c203e85905ff50f3b759a3
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

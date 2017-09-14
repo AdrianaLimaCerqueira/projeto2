@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import BLL.Funcionario;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -19,8 +20,9 @@ public class MenuAdmin extends javax.swing.JFrame {
      */
     private JPanel atual=null;
     private JFrame atualframe = null;
-    
-    public MenuAdmin() {
+    private static Funcionario func = new Funcionario();
+    public MenuAdmin(Funcionario func) {
+        this.func = func;
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         initComponents();
@@ -68,6 +70,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2.setText("SAIR");
 
         Dados_pessoais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/user.jpg"))); // NOI18N
+        Dados_pessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Dados_pessoaisActionPerformed(evt);
+            }
+        });
 
         funcionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/userfind.png"))); // NOI18N
         funcionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -77,8 +84,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/doc.png"))); // NOI18N
+        produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                produtosActionPerformed(evt);
+            }
+        });
 
         categorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/arquivo.png"))); // NOI18N
+        categorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriasActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Dados Pessoais");
 
@@ -177,6 +194,21 @@ public class MenuAdmin extends javax.swing.JFrame {
         mudaFrame(new login());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void categoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasActionPerformed
+
+        // TODO add your handling code here:
+        mudaPainel(new ver_categoria());
+    }//GEN-LAST:event_categoriasActionPerformed
+
+    private void Dados_pessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dados_pessoaisActionPerformed
+        // TODO add your handling code here:
+        mudaPainel(new edit_dadosPessoais(func));
+    }//GEN-LAST:event_Dados_pessoaisActionPerformed
+
+    private void produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produtosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_produtosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,7 +239,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdmin().setVisible(true);
+                new MenuAdmin(func).setVisible(true);
             }
         });
     }
@@ -242,7 +274,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public void voltar() {
         this.atual.setVisible(false);
         this.atual = jPanel1;
-        
         this.setContentPane(atual);
         this.atual.setVisible(true);
     }

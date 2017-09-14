@@ -135,6 +135,9 @@
               <Image iconType="3" name="/proj2esp/images/user.jpg"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Dados_pessoaisActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="funcionarios">
           <Properties>
@@ -152,6 +155,9 @@
               <Image iconType="3" name="/proj2esp/images/doc.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="produtosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="categorias">
           <Properties>
@@ -159,6 +165,9 @@
               <Image iconType="3" name="/proj2esp/images/arquivo.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="categoriasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
