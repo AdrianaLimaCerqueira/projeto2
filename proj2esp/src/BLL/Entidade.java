@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

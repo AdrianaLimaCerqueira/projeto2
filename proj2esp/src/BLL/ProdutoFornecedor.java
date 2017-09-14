@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package BLL;
 public class ProdutoFornecedor  implements java.io.Serializable {
 
 
-     private int produtoFornecedorId;
+     private ProdutoFornecedorId id;
      private Fornecedor fornecedor;
      private Produto produto;
      private Float precoCompra;
@@ -18,22 +18,24 @@ public class ProdutoFornecedor  implements java.io.Serializable {
     }
 
 	
-    public ProdutoFornecedor(int produtoFornecedorId) {
-        this.produtoFornecedorId = produtoFornecedorId;
+    public ProdutoFornecedor(ProdutoFornecedorId id, Fornecedor fornecedor, Produto produto) {
+        this.id = id;
+        this.fornecedor = fornecedor;
+        this.produto = produto;
     }
-    public ProdutoFornecedor(int produtoFornecedorId, Fornecedor fornecedor, Produto produto, Float precoCompra) {
-       this.produtoFornecedorId = produtoFornecedorId;
+    public ProdutoFornecedor(ProdutoFornecedorId id, Fornecedor fornecedor, Produto produto, Float precoCompra) {
+       this.id = id;
        this.fornecedor = fornecedor;
        this.produto = produto;
        this.precoCompra = precoCompra;
     }
    
-    public int getProdutoFornecedorId() {
-        return this.produtoFornecedorId;
+    public ProdutoFornecedorId getId() {
+        return this.id;
     }
     
-    public void setProdutoFornecedorId(int produtoFornecedorId) {
-        this.produtoFornecedorId = produtoFornecedorId;
+    public void setId(ProdutoFornecedorId id) {
+        this.id = id;
     }
     public Fornecedor getFornecedor() {
         return this.fornecedor;

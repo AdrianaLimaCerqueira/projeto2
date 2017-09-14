@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Recibo  implements java.io.Serializable {
 
 
-     private int reciboId;
+     private Integer reciboId;
      private Entidade entidade;
      private Venda venda;
      private Float valor;
@@ -19,23 +19,18 @@ public class Recibo  implements java.io.Serializable {
     public Recibo() {
     }
 
-	
-    public Recibo(int reciboId) {
-        this.reciboId = reciboId;
-    }
-    public Recibo(int reciboId, Entidade entidade, Venda venda, Float valor, Date data) {
-       this.reciboId = reciboId;
+    public Recibo(Entidade entidade, Venda venda, Float valor, Date data) {
        this.entidade = entidade;
        this.venda = venda;
        this.valor = valor;
        this.data = data;
     }
    
-    public int getReciboId() {
+    public Integer getReciboId() {
         return this.reciboId;
     }
     
-    public void setReciboId(int reciboId) {
+    public void setReciboId(Integer reciboId) {
         this.reciboId = reciboId;
     }
     public Entidade getEntidade() {

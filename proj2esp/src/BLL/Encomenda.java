@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Encomenda  implements java.io.Serializable {
 
 
-     private int encomendaId;
+     private Integer encomendaId;
      private Fornecedor fornecedor;
      private Funcionario funcionario;
      private Date data;
@@ -21,23 +21,18 @@ public class Encomenda  implements java.io.Serializable {
     public Encomenda() {
     }
 
-	
-    public Encomenda(int encomendaId) {
-        this.encomendaId = encomendaId;
-    }
-    public Encomenda(int encomendaId, Fornecedor fornecedor, Funcionario funcionario, Date data, Set produtoEncomendas) {
-       this.encomendaId = encomendaId;
+    public Encomenda(Fornecedor fornecedor, Funcionario funcionario, Date data, Set produtoEncomendas) {
        this.fornecedor = fornecedor;
        this.funcionario = funcionario;
        this.data = data;
        this.produtoEncomendas = produtoEncomendas;
     }
    
-    public int getEncomendaId() {
+    public Integer getEncomendaId() {
         return this.encomendaId;
     }
     
-    public void setEncomendaId(int encomendaId) {
+    public void setEncomendaId(Integer encomendaId) {
         this.encomendaId = encomendaId;
     }
     public Fornecedor getFornecedor() {

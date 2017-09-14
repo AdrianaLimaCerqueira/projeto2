@@ -46,26 +46,25 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11194346?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">sql11194346</property>
     <property name="hibernate.connection.password">L3GReyV2Fq</property>
-    <mapping resource="BLL/Venda.hbm.xml"/>
-    <mapping resource="BLL/Gestor.hbm.xml"/>
-    <mapping resource="BLL/MovimentoReposicao.hbm.xml"/>
-    <mapping resource="BLL/ProdInvent.hbm.xml"/>
-    <mapping resource="BLL/Produto.hbm.xml"/>
-    <mapping resource="BLL/ProdutoEncomenda.hbm.xml"/>
-    <mapping resource="BLL/Reposicao.hbm.xml"/>
-    <mapping resource="BLL/Iva.hbm.xml"/>
-    <mapping resource="BLL/MovimentoVenda.hbm.xml"/>
-    <mapping resource="BLL/Recibo.hbm.xml"/>
-    <mapping resource="BLL/Categoria.hbm.xml"/>
-    <mapping resource="BLL/Cliente.hbm.xml"/>
-    <mapping resource="BLL/RegistaProduto.hbm.xml"/>
-    <mapping resource="BLL/Encomenda.hbm.xml"/>
-    <mapping resource="BLL/Inventario.hbm.xml"/>
-    <mapping resource="BLL/Entidade.hbm.xml"/>
-    <mapping resource="BLL/Fornecedor.hbm.xml"/>
-    <mapping resource="BLL/Regista.hbm.xml"/>
-    <mapping resource="BLL/Funcionario.hbm.xml"/>
-    <mapping resource="BLL/TipoInventario.hbm.xml"/>
     <mapping resource="BLL/ProdutoFornecedor.hbm.xml"/>
+    <mapping resource="BLL/Reposicao.hbm.xml"/>
+    <mapping resource="BLL/Funcionario.hbm.xml"/>
+    <mapping resource="BLL/Produto.hbm.xml"/>
+    <mapping resource="BLL/MovimentoReposicao.hbm.xml"/>
+    <mapping resource="BLL/Regista.hbm.xml"/>
+    <mapping resource="BLL/Entidade.hbm.xml"/>
+    <mapping resource="BLL/Inventario.hbm.xml"/>
+    <mapping resource="BLL/Venda.hbm.xml"/>
+    <mapping resource="BLL/Recibo.hbm.xml"/>
+    <mapping resource="BLL/Encomenda.hbm.xml"/>
+    <mapping resource="BLL/TipoInventario.hbm.xml"/>
+    <mapping resource="BLL/ProdutoEncomenda.hbm.xml"/>
+    <mapping resource="BLL/Categoria.hbm.xml"/>
+    <mapping resource="BLL/Fornecedor.hbm.xml"/>
+    <mapping resource="BLL/Cliente.hbm.xml"/>
+    <mapping resource="BLL/Iva.hbm.xml"/>
+    <mapping resource="BLL/ProdInvent.hbm.xml"/>
+    <mapping resource="BLL/RegistaProduto.hbm.xml"/>
+    <mapping resource="BLL/MovimentoVenda.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

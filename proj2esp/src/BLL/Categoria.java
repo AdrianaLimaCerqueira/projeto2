@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Categoria  implements java.io.Serializable {
 
 
-     private int categoriaId;
+     private Integer categoriaId;
      private String nome;
      private String descricao;
      private Set produtos = new HashSet(0);
@@ -19,22 +19,17 @@ public class Categoria  implements java.io.Serializable {
     public Categoria() {
     }
 
-	
-    public Categoria(int categoriaId) {
-        this.categoriaId = categoriaId;
-    }
-    public Categoria(int categoriaId, String nome, String descricao, Set produtos) {
-       this.categoriaId = categoriaId;
+    public Categoria(String nome, String descricao, Set produtos) {
        this.nome = nome;
        this.descricao = descricao;
        this.produtos = produtos;
     }
    
-    public int getCategoriaId() {
+    public Integer getCategoriaId() {
         return this.categoriaId;
     }
     
-    public void setCategoriaId(int categoriaId) {
+    public void setCategoriaId(Integer categoriaId) {
         this.categoriaId = categoriaId;
     }
     public String getNome() {

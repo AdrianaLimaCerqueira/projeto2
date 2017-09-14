@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,7 +17,7 @@ public class Funcionario  implements java.io.Serializable {
      private String morada;
      private Integer telefone;
      private String EMail;
-     private byte[] tipo;
+     private int tipo;
      private String username;
      private Set vendas = new HashSet(0);
      private Set encomendas = new HashSet(0);
@@ -28,12 +28,13 @@ public class Funcionario  implements java.io.Serializable {
     }
 
 	
-    public Funcionario(String password, String nome, String username) {
+    public Funcionario(String password, String nome, int tipo, String username) {
         this.password = password;
         this.nome = nome;
+        this.tipo = tipo;
         this.username = username;
     }
-    public Funcionario(String password, String nome, String morada, Integer telefone, String EMail, byte[] tipo, String username, Set vendas, Set encomendas, Set registas, Set reposicaos) {
+    public Funcionario(String password, String nome, String morada, Integer telefone, String EMail, int tipo, String username, Set vendas, Set encomendas, Set registas, Set reposicaos) {
        this.password = password;
        this.nome = nome;
        this.morada = morada;
@@ -89,11 +90,11 @@ public class Funcionario  implements java.io.Serializable {
     public void setEMail(String EMail) {
         this.EMail = EMail;
     }
-    public byte[] getTipo() {
+    public int getTipo() {
         return this.tipo;
     }
     
-    public void setTipo(byte[] tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
     public String getUsername() {

@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,28 +11,23 @@ import java.util.Set;
 public class Iva  implements java.io.Serializable {
 
 
-     private int ivaId;
+     private Integer ivaId;
      private Float valor;
      private Set produtos = new HashSet(0);
 
     public Iva() {
     }
 
-	
-    public Iva(int ivaId) {
-        this.ivaId = ivaId;
-    }
-    public Iva(int ivaId, Float valor, Set produtos) {
-       this.ivaId = ivaId;
+    public Iva(Float valor, Set produtos) {
        this.valor = valor;
        this.produtos = produtos;
     }
    
-    public int getIvaId() {
+    public Integer getIvaId() {
         return this.ivaId;
     }
     
-    public void setIvaId(int ivaId) {
+    public void setIvaId(Integer ivaId) {
         this.ivaId = ivaId;
     }
     public Float getValor() {

@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Produto  implements java.io.Serializable {
 
 
-     private int produtoId;
+     private Integer produtoId;
      private Categoria categoria;
      private Iva iva;
      private String descricao;
@@ -28,12 +28,10 @@ public class Produto  implements java.io.Serializable {
     }
 
 	
-    public Produto(int produtoId, Categoria categoria) {
-        this.produtoId = produtoId;
+    public Produto(Categoria categoria) {
         this.categoria = categoria;
     }
-    public Produto(int produtoId, Categoria categoria, Iva iva, String descricao, String precoVenda, String nome, Set registaProdutos, Set movimentoVendas, Set prodInvents, Set produtoFornecedors, Set produtoEncomendas, Set movimentoReposicaos) {
-       this.produtoId = produtoId;
+    public Produto(Categoria categoria, Iva iva, String descricao, String precoVenda, String nome, Set registaProdutos, Set movimentoVendas, Set prodInvents, Set produtoFornecedors, Set produtoEncomendas, Set movimentoReposicaos) {
        this.categoria = categoria;
        this.iva = iva;
        this.descricao = descricao;
@@ -47,11 +45,11 @@ public class Produto  implements java.io.Serializable {
        this.movimentoReposicaos = movimentoReposicaos;
     }
    
-    public int getProdutoId() {
+    public Integer getProdutoId() {
         return this.produtoId;
     }
     
-    public void setProdutoId(int produtoId) {
+    public void setProdutoId(Integer produtoId) {
         this.produtoId = produtoId;
     }
     public Categoria getCategoria() {

@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Reposicao  implements java.io.Serializable {
 
 
-     private int reposicaoId;
+     private Integer reposicaoId;
      private Funcionario funcionario;
      private Date data;
      private Set movimentoReposicaos = new HashSet(0);
@@ -20,22 +20,17 @@ public class Reposicao  implements java.io.Serializable {
     public Reposicao() {
     }
 
-	
-    public Reposicao(int reposicaoId) {
-        this.reposicaoId = reposicaoId;
-    }
-    public Reposicao(int reposicaoId, Funcionario funcionario, Date data, Set movimentoReposicaos) {
-       this.reposicaoId = reposicaoId;
+    public Reposicao(Funcionario funcionario, Date data, Set movimentoReposicaos) {
        this.funcionario = funcionario;
        this.data = data;
        this.movimentoReposicaos = movimentoReposicaos;
     }
    
-    public int getReposicaoId() {
+    public Integer getReposicaoId() {
         return this.reposicaoId;
     }
     
-    public void setReposicaoId(int reposicaoId) {
+    public void setReposicaoId(Integer reposicaoId) {
         this.reposicaoId = reposicaoId;
     }
     public Funcionario getFuncionario() {

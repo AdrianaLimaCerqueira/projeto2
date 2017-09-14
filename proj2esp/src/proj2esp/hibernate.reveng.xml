@@ -41,25 +41,24 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="sql11194346"/>
-  <table-filter match-name="gestor"/>
-  <table-filter match-name="funcionario"/>
-  <table-filter match-name="entidade"/>
   <table-filter match-name="cliente"/>
-  <table-filter match-name="reposicao"/>
   <table-filter match-name="produto_encomenda"/>
-  <table-filter match-name="prod_invent"/>
-  <table-filter match-name="tipo_inventario"/>
-  <table-filter match-name="recibo"/>
-  <table-filter match-name="venda"/>
-  <table-filter match-name="produto"/>
-  <table-filter match-name="inventario"/>
-  <table-filter match-name="categoria"/>
-  <table-filter match-name="produto_fornecedor"/>
-  <table-filter match-name="movimento_reposicao"/>
-  <table-filter match-name="regista"/>
-  <table-filter match-name="fornecedor"/>
-  <table-filter match-name="iva"/>
-  <table-filter match-name="movimento_venda"/>
-  <table-filter match-name="regista_produto"/>
   <table-filter match-name="encomenda"/>
+  <table-filter match-name="tipo_inventario"/>
+  <table-filter match-name="inventario"/>
+  <table-filter match-name="produto_fornecedor"/>
+  <table-filter match-name="recibo"/>
+  <table-filter match-name="prod_invent"/>
+  <table-filter match-name="entidade"/>
+  <table-filter match-name="iva"/>
+  <table-filter match-name="fornecedor"/>
+  <table-filter match-name="funcionario"/>
+  <table-filter match-name="reposicao"/>
+  <table-filter match-name="movimento_venda"/>
+  <table-filter match-name="movimento_reposicao"/>
+  <table-filter match-name="produto"/>
+  <table-filter match-name="regista_produto"/>
+  <table-filter match-name="regista"/>
+  <table-filter match-name="categoria"/>
+  <table-filter match-name="venda"/>
 </hibernate-reverse-engineering>

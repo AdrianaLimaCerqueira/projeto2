@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Venda  implements java.io.Serializable {
 
 
-     private int vendaId;
+     private Integer vendaId;
      private Cliente cliente;
      private Funcionario funcionario;
      private Float preco;
@@ -23,12 +23,7 @@ public class Venda  implements java.io.Serializable {
     public Venda() {
     }
 
-	
-    public Venda(int vendaId) {
-        this.vendaId = vendaId;
-    }
-    public Venda(int vendaId, Cliente cliente, Funcionario funcionario, Float preco, Date data, Set recibos, Set movimentoVendas) {
-       this.vendaId = vendaId;
+    public Venda(Cliente cliente, Funcionario funcionario, Float preco, Date data, Set recibos, Set movimentoVendas) {
        this.cliente = cliente;
        this.funcionario = funcionario;
        this.preco = preco;
@@ -37,11 +32,11 @@ public class Venda  implements java.io.Serializable {
        this.movimentoVendas = movimentoVendas;
     }
    
-    public int getVendaId() {
+    public Integer getVendaId() {
         return this.vendaId;
     }
     
-    public void setVendaId(int vendaId) {
+    public void setVendaId(Integer vendaId) {
         this.vendaId = vendaId;
     }
     public Cliente getCliente() {

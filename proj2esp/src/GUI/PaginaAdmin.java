@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proj2esp;
+package GUI;
 
 /**
  *
@@ -16,6 +16,8 @@ public class PaginaAdmin extends javax.swing.JFrame {
      */
     public PaginaAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**

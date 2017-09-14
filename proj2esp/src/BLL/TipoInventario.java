@@ -1,5 +1,5 @@
 package BLL;
-// Generated 13/set/2017 17:26:29 by Hibernate Tools 4.3.1
+// Generated 14/set/2017 0:29:34 by Hibernate Tools 4.3.1
 
 
 
@@ -9,26 +9,21 @@ package BLL;
 public class TipoInventario  implements java.io.Serializable {
 
 
-     private int inventarioId;
+     private Integer inventarioId;
      private String desc;
 
     public TipoInventario() {
     }
 
-	
-    public TipoInventario(int inventarioId) {
-        this.inventarioId = inventarioId;
-    }
-    public TipoInventario(int inventarioId, String desc) {
-       this.inventarioId = inventarioId;
+    public TipoInventario(String desc) {
        this.desc = desc;
     }
    
-    public int getInventarioId() {
+    public Integer getInventarioId() {
         return this.inventarioId;
     }
     
-    public void setInventarioId(int inventarioId) {
+    public void setInventarioId(Integer inventarioId) {
         this.inventarioId = inventarioId;
     }
     public String getDesc() {
