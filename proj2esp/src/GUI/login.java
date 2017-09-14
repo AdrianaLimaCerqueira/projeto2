@@ -120,7 +120,7 @@ public class login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-Session session = Database.getSession();
+            Session session = Database.getSession();
             Query query = session.createQuery("FROM BLL.Funcionario");
         
             List<Funcionario> funcionario = query.list();
@@ -131,7 +131,7 @@ Session session = Database.getSession();
                     switch(fun.getTipo()){
                         case 1:
                             this.setVisible(false);
-                            PaginaAdmin paginaadmin = new PaginaAdmin();
+                            MenuAdmin menuAdmin = new MenuAdmin();
                             break;
                         case 2:
                             this.setVisible(false);
