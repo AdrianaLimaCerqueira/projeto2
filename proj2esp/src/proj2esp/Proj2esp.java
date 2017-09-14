@@ -17,8 +17,8 @@ public class Proj2esp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        login log = new login();
         login login = new login();
+        
         login.setVisible(true);
     }
     
