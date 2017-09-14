@@ -41,6 +41,9 @@ public class ver_func extends javax.swing.JPanel {
         Action editar = new AbstractAction(){
             @Override
             public void actionPerformed(ActionEvent e) {
+            JTable table = (JTable)e.getSource();
+            int row = Integer.valueOf( e.getActionCommand() );
+            
                 
             }
         };
