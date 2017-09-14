@@ -59,6 +59,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/logout.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("SAIR");
 
@@ -167,6 +172,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         mudaPainel(new ver_func());
     }//GEN-LAST:event_funcionariosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        mudaFrame(new login());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +242,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     public void voltar() {
         this.atual.setVisible(false);
         this.atual = jPanel1;
+        
         this.setContentPane(atual);
+        this.atual.setVisible(true);
     }
 }
