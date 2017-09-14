@@ -5,6 +5,18 @@
  */
 package GUI;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import BLL.*;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import proj2esp.Database;
+
 /**
  *
  * @author Adriana Cerqueira
@@ -14,8 +26,62 @@ public class ver_func extends javax.swing.JPanel {
     /**
      * Creates new form ver_func
      */
+    
+     DefaultTableModel valores;
+     
     public ver_func() {
         initComponents();
+        
+        valores = (DefaultTableModel) jTable1.getModel();
+        Session session = Database.getSession();
+        Query query = session.createQuery("FROM BLL.Funcionario");
+        List<Funcionario> funcionario = query.list();
+        Action editar = new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        };
+        
+        Action eliminar = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] options = {"Confirmar", "Cancelar"};
+                int dialogResult = JOptionPane.showOptionDialog(null, "Pretende eliminar o funcionario selecionado?", "Confirmação",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,     //do not use a custom Icon
+                options,  //the titles of buttons
+                options[0]);
+                if(dialogResult == JOptionPane.YES_OPTION){    
+                    JTable table = (JTable)e.getSource();
+                    int row = Integer.valueOf( e.getActionCommand() );
+                    String p=(String)valores.getValueAt(row, 1);
+                    for(Funcionario func : funcionario){
+                        if(func.getUsername().equals(p)){
+                            session.delete(func);
+                            ver_func ver_func = new ver_func();
+                        }
+                    }
+                }
+            }
+        };
+        
+        for(Funcionario func : funcionario){
+            if(!func.getUsername().equals("admin")){
+            valores.addRow(new String[]{
+                func.getNome(),
+                func.getUsername(),
+                func.getMorada(),
+                func.getTelefone().toString(),
+                func.getEMail(),
+                verificatipo(func)
+
+            });
+            ButtonColumn btc = new ButtonColumn(this.jTable1, editar, 6);
+            ButtonColumn btc1 = new ButtonColumn(this.jTable1, eliminar, 7);
+        }
+        }
     }
 
     /**
@@ -33,12 +99,6 @@ public class ver_func extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
@@ -51,40 +111,22 @@ public class ver_func extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID", "NOME"
+                "nome", "username", "morada", "telefone", "e-mail", "tipo", "editar", "eliminar"
             }
-        ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true, true
+            };
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/userdelete.png"))); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/useredit.png"))); // NOI18N
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/usermais.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-
-        jLabel3.setText("Adicionar Funcionário");
-
-        jLabel4.setText("Editar Funcionário");
-
-        jLabel5.setText("Eliminar Funcionário");
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,24 +142,8 @@ public class ver_func extends javax.swing.JPanel {
                                 .addComponent(jLabel2))
                             .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel4)))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,20 +153,8 @@ public class ver_func extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -157,23 +171,26 @@ public class ver_func extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
+
+
+    private String verificatipo(Funcionario func){
+        switch (func.getTipo()){
+            case 2:
+                return "caixa";
+            case 3:
+                return "repositor";
+        }
+        return " ";
+    }
+    
+    
 }

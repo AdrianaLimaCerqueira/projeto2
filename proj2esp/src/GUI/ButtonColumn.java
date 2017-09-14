@@ -18,16 +18,11 @@ import javax.swing.table.*;
  *  in the table. The TableModel will contain the String to be displayed on
  *  the button.
  *
- *  The button can be invoked by a mouse click or by pressing the space bar
- *  when the cell has focus. Optionally a mnemonic can be set to invoke the
- *  button. When the button is invoked the provided Action is invoked. The
- *  source of the Action will be the table. The action command will contain
- *  the model row number of the button that was clicked.
- *
+ * @author joaogomes
  */
 public class ButtonColumn extends AbstractCellEditor
-	implements TableCellRenderer, TableCellEditor, ActionListener, MouseListener
-{
+	implements TableCellRenderer, TableCellEditor, ActionListener, MouseListener {
+    
 	private JTable table;
 	private Action action;
 	private int mnemonic;
@@ -64,7 +59,7 @@ public class ButtonColumn extends AbstractCellEditor
 		columnModel.getColumn(column).setCellRenderer( this );
 		columnModel.getColumn(column).setCellEditor( this );
 		table.addMouseListener( this );
-	}
+}
 
 
 	/**
