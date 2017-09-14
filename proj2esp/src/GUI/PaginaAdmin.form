@@ -56,7 +56,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -70,29 +69,27 @@
                       </Group>
                   </Group>
               </Group>
-=======
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
+
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="dados_pessoais" alignment="0" min="-2" max="-2" attributes="0"/>
-=======
+
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jButton2" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="jButton4" min="-2" pref="100" max="-2" attributes="0"/>
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               </Group>
-<<<<<<< HEAD
+
                               <Component id="produtos" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-=======
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -104,20 +101,20 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
+ 
                               <Component id="funcionarios" min="-2" pref="100" max="-2" attributes="0"/>
-=======
+
                               <Component id="jButton3" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="jButton5" min="-2" pref="100" max="-2" attributes="0"/>
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+ 
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               </Group>
-<<<<<<< HEAD
+ 
                               <Component id="categorias" min="-2" pref="100" max="-2" attributes="0"/>
-=======
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+
+ 
                           </Group>
                           <EmptySpace min="0" pref="144" max="32767" attributes="0"/>
                       </Group>
@@ -146,7 +143,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
+ 
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="sair" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -170,7 +167,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-=======
+
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -206,7 +203,7 @@
                               </Group>
                           </Group>
                       </Group>
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+ 
                   </Group>
                   <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
@@ -225,7 +222,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/proj2esp/images/user.jpg"/>
             </Property>
-<<<<<<< HEAD
+ 
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -239,8 +236,8 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/proj2esp/images/logout.png"/>
             </Property>
-=======
->>>>>>> f02f5046afb8dd8e21a116368aaabf649b93efa1
+
+ 
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairActionPerformed"/>
