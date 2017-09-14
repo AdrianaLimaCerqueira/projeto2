@@ -13,8 +13,11 @@ import BLL.*;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import proj2esp.Database;
 
 /**
@@ -28,7 +31,6 @@ public class ver_func extends javax.swing.JPanel {
      */
     
      DefaultTableModel valores;
-     
     public ver_func() {
         initComponents();
         
@@ -62,7 +64,7 @@ public class ver_func extends javax.swing.JPanel {
                         session.beginTransaction();
                         session.delete(func);
                         session.getTransaction().commit();                            
-                        ver_func ver_func = new ver_func();
+                        valores.fireTableDataChanged();
                         }
                     }
                 }
@@ -108,6 +110,11 @@ public class ver_func extends javax.swing.JPanel {
         jPanel1.setOpaque(false);
 
         voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/back.png"))); // NOI18N
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("VOLTAR");
 
@@ -173,6 +180,12 @@ public class ver_func extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+    MenuAdmin topFrame = (MenuAdmin) SwingUtilities.getWindowAncestor(this);
+        topFrame.voltar();
+            
+    }//GEN-LAST:event_voltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -194,5 +207,7 @@ public class ver_func extends javax.swing.JPanel {
         return " ";
     }
     
+    
+
     
 }
