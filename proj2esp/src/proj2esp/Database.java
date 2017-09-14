@@ -33,8 +33,7 @@ public class Database {
     // Update database
     public static int update(Object obj){
         
-        Session session ;
-        session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try{
             session.beginTransaction();
@@ -67,9 +66,7 @@ public class Database {
     
     // Save to database
     public static int save(Object obj){
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = sf.openSession();
-        
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
             session.save(obj);
