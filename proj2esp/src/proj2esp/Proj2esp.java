@@ -16,6 +16,8 @@ public class Proj2esp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        login login = new login();
+        login.setVisible(true);
     }
     
 }
