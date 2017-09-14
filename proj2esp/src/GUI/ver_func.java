@@ -43,9 +43,16 @@ public class ver_func extends javax.swing.JPanel {
             public void actionPerformed(ActionEvent e) {
             JTable table = (JTable)e.getSource();
             int row = Integer.valueOf( e.getActionCommand() );
-            
-                
-            }
+            String p = (String)valores.getValueAt(row,1);
+            for(Funcionario func : funcionario){
+                if(func.getUsername().equals(p)){            
+                    MenuAdmin topFrame = (MenuAdmin) SwingUtilities.getWindowAncestor(getRootPane());    
+                    edit_dadosPessoais novo = new edit_dadosPessoais(func);
+                    topFrame.getContentPane().setVisible(false);
+                    topFrame.setContentPane(novo);
+                    novo.setVisible(true);
+                }
+                }}
         };
         
         Action eliminar = new AbstractAction() {
@@ -88,8 +95,8 @@ public class ver_func extends javax.swing.JPanel {
             ButtonColumn btc = new ButtonColumn(this.jTable1, editar, 6);
             ButtonColumn btc1 = new ButtonColumn(this.jTable1, eliminar, 7);
         }
-        }
-    }
+        
+    }}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,6 +113,8 @@ public class ver_func extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Adicionar_funcionario = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
@@ -140,6 +149,15 @@ public class ver_func extends javax.swing.JPanel {
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jTable1);
 
+        Adicionar_funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proj2esp/images/usermais.png"))); // NOI18N
+        Adicionar_funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Adicionar_funcionarioActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Adicionar Funcionario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,26 +165,36 @@ public class ver_func extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel2))
                             .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Adicionar_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(Adicionar_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -189,10 +217,21 @@ public class ver_func extends javax.swing.JPanel {
             
     }//GEN-LAST:event_voltarActionPerformed
 
+    private void Adicionar_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adicionar_funcionarioActionPerformed
+        MenuAdmin topFrame = (MenuAdmin) SwingUtilities.getWindowAncestor(this);
+        add_funci aux = new add_funci();
+        this.setVisible(false);
+        topFrame.setContentPane(aux);
+        aux.setVisible(true);
+
+    }//GEN-LAST:event_Adicionar_funcionarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Adicionar_funcionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

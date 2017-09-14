@@ -131,10 +131,11 @@ public class login extends javax.swing.JFrame {
                     switch(fun.getTipo()){
                         case 1:
                             this.setVisible(false);
-                            MenuAdmin menuAdmin = new MenuAdmin();
+                            MenuAdmin menuAdmin = new MenuAdmin(fun);
                             break;
                         case 2:
                             this.setVisible(false);
+                            Menu_Caixa menuCaixa = new Menu_Caixa();
                             break;
                         case 3:
                             break;
