@@ -18,7 +18,7 @@ public class Proj2esp {
      */
     public static void main(String[] args) {
         login login = new login();
-        
+        login log = new login();
         login.setVisible(true);
     }
     
