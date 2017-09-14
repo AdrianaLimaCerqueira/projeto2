@@ -59,8 +59,10 @@ public class ver_func extends javax.swing.JPanel {
                     String p=(String)valores.getValueAt(row, 1);
                     for(Funcionario func : funcionario){
                         if(func.getUsername().equals(p)){
-                            session.delete(func);
-                            ver_func ver_func = new ver_func();
+                        session.beginTransaction();
+                        session.delete(func);
+                        session.getTransaction().commit();                            
+                        ver_func ver_func = new ver_func();
                         }
                     }
                 }
